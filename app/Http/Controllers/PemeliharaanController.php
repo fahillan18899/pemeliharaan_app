@@ -6,9 +6,26 @@ use Illuminate\Http\Request;
 
 class PemeliharaanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Pemeliharaan::latest()->get();
+        $query = Pemeliharaan::query();
+
+        if ($request->search) {
+            $search = $request->search;
+
+            $query->where(function ($q) use ($search) {
+                $q->where('alat', 'like', "%$search%")
+                ->orWhere('sn', 'like', "%$search%")
+                ->orWhere('ruang', 'like', "%$search%")
+                ->orWhere('type', 'like', "%$search%")
+                ->orWhere('teknisi', 'like', "%$search%")
+                ->orWhere('no', 'like', "%$search%")
+                ->orWhere('ket', 'like', "%$search%");
+            });
+        }
+
+        $data = $query->latest()->get();
+
         return view('pemeliharaan.index', compact('data'));
     }
 
@@ -26,6 +43,21 @@ class PemeliharaanController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
+    }
+
+    public function edit($id)
+    {
+        $data = Pemeliharaan::findOrFail($id);
+        return view('pemeliharaan.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $item = Pemeliharaan::findOrFail($id);
+
+        $item->update($request->all());
+
+        return redirect()->route('dashboard')->with('success', 'Data berhasil diupdate');
     }
 
     public function print($id)

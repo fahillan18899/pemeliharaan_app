@@ -22,7 +22,31 @@
             <!-- Card -->
             <div class="bg-white shadow rounded-xl p-6">
             <h3 class="text-lg font-semibold mb-4">Data Pemeliharaan</h3>
+            <form method="GET" action="{{ route('dashboard') }}" class="mb-4">
+                <div class="flex gap-2">
+                    <input 
+                        type="text" 
+                        name="search" 
+                        value="{{ request('search') }}"
+                        onkeyup="this.form.submit()"
+                        placeholder="Cari alat, SN, ruang, teknisi..."
+                        class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400"
+                    >
 
+                    <button 
+                        type="submit"
+                        class="bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700">
+                        🔍
+                    </button>
+
+                    @if(request('search'))
+                        <a href="{{ route('dashboard') }}" 
+                            class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400">
+                            Reset
+                        </a>
+                    @endif
+                </div>
+            </form>
             @if($data->isEmpty())
                 <p class="text-gray-500">Belum ada data.</p>
             @else
@@ -60,6 +84,14 @@
                                   "Link: " . url('/pemeliharaan/' . $item->id)
                               ) !!}</center>
                               <center><p><b>{{ $item->sn ?? '-' }}</b></p></center>
+                            </div>
+
+                            <div class="mt-4 flex justify-end">
+                            <!-- Tombol Edit -->
+                                <a href="{{ route('pemeliharaan.edit', $item->id) }}"
+                                    class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg text-sm">
+                                    ✏️ Edit
+                                </a>
                             </div>
 
                             <!-- PRINT -->
