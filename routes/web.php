@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // PUBLIC (tanpa login)
 Route::get('/pemeliharaan/{id}', [PemeliharaanController::class, 'view']);
+Route::get('/pemeliharaan/print/{id}', [PemeliharaanController::class, 'print'])->name('pemeliharaan.print');
 
 Route::get('/', function () {
     return view('auth.login');

@@ -28,6 +28,12 @@ class PemeliharaanController extends Controller
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
 
+    public function print($id)
+    {
+        $data = Pemeliharaan::findOrFail($id);
+        return view('pemeliharaan.print', compact('data'));
+    }
+
     public function view($id)
     {
         $data = Pemeliharaan::findOrFail($id);

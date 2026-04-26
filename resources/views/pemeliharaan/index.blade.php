@@ -62,6 +62,14 @@
                               <center><p><b>{{ $item->sn ?? '-' }}</b></p></center>
                             </div>
 
+                            <!-- PRINT -->
+                            <div class="mt-4 flex justify-end">
+                                <a href="{{ route('pemeliharaan.print', $item->id) }}" target="_blank"
+                                    class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-lg text-sm">
+                                    🖨️ Print
+                                </a>
+                            </div>
+
                         </div>
                     @endforeach
                 </div>
