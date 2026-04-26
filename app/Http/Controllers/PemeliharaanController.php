@@ -19,11 +19,18 @@ class PemeliharaanController extends Controller
             'sn' => $request->sn,
             'ruang' => $request->ruang,
             'type' => $request->type,
+            'teknisi' => $request->teknisi,
             'no' => $request->no,
             'waktu' => $request->waktu,
             'ket' => $request->ket,
         ]);
 
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
+    }
+
+    public function show($id)
+    {
+        $data = Pemeliharaan::findOrFail($id);
+        return view('pemeliharaan.show', compact('data'));
     }
 }

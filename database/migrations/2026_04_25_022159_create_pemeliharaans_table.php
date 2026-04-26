@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('sn')->nullable();
             $table->text('ruang')->nullable();
             $table->text('type')->nullable();
+            $table->text('teknisi')->nullable();
             $table->text('no')->nullable();
             $table->date('waktu')->nullable();
             $table->text('ket')->nullable();

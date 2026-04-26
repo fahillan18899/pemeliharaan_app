@@ -13,6 +13,7 @@ protected $fillable = [
     'sn',
     'ruang',
     'type',
+    'teknisi',
     'no',
     'waktu',
     'ket',

@@ -48,8 +48,18 @@
                             <div class="mt-2 text-sm text-gray-600">
                                 <p>Ruang: {{ $item->ruang ?? '-' }}</p>
                                 <p>Type: {{ $item->type ?? '-' }}</p>
+                                <p>Teknisi: {{ $item->teknisi ?? '-' }}</p>
                                 <p>No: {{ $item->no ?? '-' }}</p>
                                 <p>Keterangan: {{ $item->ket ?? '-' }}</p>
+                            </div>
+
+                            <!-- QR CODE -->
+                            <div class="mt-4">
+                              <center><p><b>{{ $item->alat ?? '-' }}</b></p></center>
+                              <center>{!! QrCode::size(120)->generate(
+                                  "Link: " . url('/pemeliharaan/' . $item->id)
+                              ) !!}</center>
+                              <center><p><b>{{ $item->sn ?? '-' }}</b></p></center>
                             </div>
 
                         </div>
@@ -86,6 +96,9 @@
                 class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
 
                 <input type="text" name="type" placeholder="Type"
+                class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
+
+                <input type="text" name="teknisi" placeholder="Teknisi"
                 class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
 
                 <input type="text" name="no" placeholder="No"
