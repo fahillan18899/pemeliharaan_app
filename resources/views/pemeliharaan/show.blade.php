@@ -62,20 +62,18 @@
     <div class="title">KARTU PEMELIHARAAN ALAT</div>
 
     <table class="info">
-        @foreach ($data as $item1)
         <tr>
             <td class="label">Nama Alat</td>
-            <td>: {{ $item1->alat ?? '-' }}</td>
+            <td>: {{ $data->alat ?? '-' }}</td>
             <td class="label">No. Seri</td>
-            <td>: {{ $item1->sn ?? '-' }}</td>
+            <td>: {{ $data->sn ?? '-' }}</td>
         </tr>
         <tr>
             <td class="label">Merk/Tipe</td>
-            <td>: {{ $item1->type ?? '-' }}</td>
+            <td>: {{ $data->type ?? '-' }}</td>
             <td class="label">Lokasi</td>
-            <td>: {{ $item1->ruang ?? '-' }}</td>
+            <td>: {{ $data->ruang ?? '-' }}</td>
         </tr>
-        @endforeach
     </table>
 
     <table class="main">
@@ -88,9 +86,8 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data as $item2)
             <!-- Baris kosong untuk diisi -->
-            <tr><td>{{ $item2->waktu }}</td><td>{{ $item2->ket ?? '-' }}</td><td>{{ $item2->teknisi ?? '-' }}</td><td>V</td></tr>
+            <tr><td>{{ $data->waktu }}</td><td>{{ $data->ket ?? '-' }}</td><td>{{ $data->teknisi ?? '-' }}</td><td>V</td></tr>
             <tr><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td></tr>
@@ -98,7 +95,6 @@
             <tr><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td></tr>
-            @endforeach
         </tbody>
     </table>
 
