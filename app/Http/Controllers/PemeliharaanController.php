@@ -28,7 +28,7 @@ class PemeliharaanController extends Controller
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
 
-    public function show($id)
+    public function view($id)
     {
         $data = Pemeliharaan::findOrFail($id);
         return view('pemeliharaan.show', compact('data'));
