@@ -12,11 +12,6 @@
                 <input type="text" name="sn" value="{{ $data->sn }}" class="w-full border p-2 mb-2 rounded">
                 <input type="text" name="ruang" value="{{ $data->ruang }}" class="w-full border p-2 mb-2 rounded">
                 <input type="text" name="type" value="{{ $data->type }}" class="w-full border p-2 mb-2 rounded">
-                <input type="text" name="teknisi" value="{{ $data->teknisi }}" class="w-full border p-2 mb-2 rounded">
-                <input type="text" name="no" value="{{ $data->no }}" class="w-full border p-2 mb-2 rounded">
-                <input type="date" name="waktu" value="{{ $data->waktu }}" class="w-full border p-2 mb-2 rounded">
-
-                <textarea name="ket" class="w-full border p-2 mb-2 rounded">{{ $data->ket }}</textarea>
 
                 <div class="flex justify-end gap-2">
                     <a href="{{ route('dashboard') }}" class="px-4 py-2 bg-gray-300 rounded">Batal</a>

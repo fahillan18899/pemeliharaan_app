@@ -17,10 +17,7 @@ class PemeliharaanController extends Controller
                 $q->where('alat', 'like', "%$search%")
                 ->orWhere('sn', 'like', "%$search%")
                 ->orWhere('ruang', 'like', "%$search%")
-                ->orWhere('type', 'like', "%$search%")
-                ->orWhere('teknisi', 'like', "%$search%")
-                ->orWhere('no', 'like', "%$search%")
-                ->orWhere('ket', 'like', "%$search%");
+                ->orWhere('type', 'like', "%$search%");
             });
         }
 
@@ -36,10 +33,6 @@ class PemeliharaanController extends Controller
             'sn' => $request->sn,
             'ruang' => $request->ruang,
             'type' => $request->type,
-            'teknisi' => $request->teknisi,
-            'no' => $request->no,
-            'waktu' => $request->waktu,
-            'ket' => $request->ket,
         ]);
 
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
@@ -68,7 +61,8 @@ class PemeliharaanController extends Controller
 
     public function view($id)
     {
-        $data = Pemeliharaan::findOrFail($id);
-        return view('pemeliharaan.show', compact('data'));
+        $alat = Pemeliharaan::with('riwayat')->findOrFail($id);
+
+        return view('pemeliharaan.show', compact('alat'));
     }
 }

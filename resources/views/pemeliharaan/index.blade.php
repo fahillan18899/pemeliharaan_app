@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard Pemeliharaan
+                Dashboard SIMALKE
             </h2>
 
             <button onclick="openModal()" 
@@ -62,19 +62,13 @@
                                     <p class="text-sm text-gray-500">
                                         SN: {{ $item->sn ?? '-' }}
                                     </p>
+                                    <p class="text-sm text-gray-500">
+                                        Type: {{ $item->type ?? '-' }}
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        Ruang: {{ $item->ruang ?? '-' }}
+                                    </p>
                                 </div>
-
-                                <div class="text-sm text-gray-400">
-                                    {{ $item->waktu }}
-                                </div>
-                            </div>
-
-                            <div class="mt-2 text-sm text-gray-600">
-                                <p>Ruang: {{ $item->ruang ?? '-' }}</p>
-                                <p>Type: {{ $item->type ?? '-' }}</p>
-                                <p>Teknisi: {{ $item->teknisi ?? '-' }}</p>
-                                <p>No: {{ $item->no ?? '-' }}</p>
-                                <p>Keterangan: {{ $item->ket ?? '-' }}</p>
                             </div>
 
                             <!-- QR CODE -->
@@ -131,24 +125,12 @@
 
                 <input type="text" name="sn" placeholder="Serial Number"
                 class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
-
-                <input type="text" name="ruang" placeholder="Ruangan"
-                class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
-
+                
                 <input type="text" name="type" placeholder="Type"
                 class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
 
-                <input type="text" name="teknisi" placeholder="Teknisi"
+                <input type="text" name="ruang" placeholder="Ruangan"
                 class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
-
-                <input type="text" name="no" placeholder="No"
-                class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
-
-                <input type="date" name="waktu" placeholder="Waktu"
-                class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400">
-
-                <textarea name="ket" placeholder="Keterangan"
-                    class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400"></textarea>
 
                 <!-- Action -->
                 <div class="flex justify-end gap-2 pt-2">

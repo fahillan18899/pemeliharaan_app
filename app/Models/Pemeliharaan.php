@@ -13,9 +13,10 @@ protected $fillable = [
     'sn',
     'ruang',
     'type',
-    'teknisi',
-    'no',
-    'waktu',
-    'ket',
 ];
+
+public function riwayat()
+{
+    return $this->hasMany(PemeliharaanDua::class, 'alat_id');
+}
 }

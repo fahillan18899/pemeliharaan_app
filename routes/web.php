@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PemeliharaanController;
+use App\Http\Controllers\PemeliharaanDuaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ Route::get('/dashboard', [PemeliharaanController::class, 'index'])
 
 Route::middleware('auth')->group(function () {
     Route::resource('pemeliharaan', PemeliharaanController::class);
+    Route::resource('pemeliharaandua', PemeliharaanDuaController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

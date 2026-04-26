@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pemeliharaans', function (Blueprint $table) {
+        Schema::create('pemeliharaanduas', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('alat')->nullable();
-            $table->text('sn')->nullable();
-            $table->text('ruang')->nullable();
-            $table->text('type')->nullable();
+            $table->text('alat_id')->nullable();
+            $table->text('waktu')->nullable();
+            $table->text('ket')->nullable();
+            $table->text('teknisi')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pemeliharaans');
+        Schema::dropIfExists('pemeliharaan_duas');
     }
 };
