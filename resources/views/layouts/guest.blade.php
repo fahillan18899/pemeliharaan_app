@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Judul -->
-    <title>SIMALKE</title>
+    <title>SIMALKES</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -34,7 +34,7 @@
             </div>
 
             <h1 class="text-xl font-bold text-green-700 tracking-wide">
-                SIMALKE
+                SIMALKES
             </h1>
 
             <p class="text-sm text-green-600">
@@ -49,7 +49,7 @@
 
         <!-- FOOTER -->
         <p class="mt-6 text-xs text-gray-400">
-            © {{ date('Y') }} SIMALKE
+            © {{ date('Y') }} SIMALKES
         </p>
 
     </div>
